@@ -53,18 +53,7 @@ func isRemove(record events.DynamoDBEventRecord) bool {
 func mountJSON(record events.DynamoDBStreamRecord) map[string]any {
 	image := make(models.Image)
 	for key, value := range record.OldImage {
-		nestedMap := make(map[string]any)
-		marshalledJson, err := value.MarshalJSON()
-		if err != nil {
-			panic(err)
-		}
-		err = json.Unmarshal(marshalledJson, &nestedMap)
-		if err != nil {
-			panic(err)
-		}
-		for _, val := range nestedMap {
-			image[key] = val
-		}
+		image[key] = ExtractVal(value)
 	}
 	return image
 }
