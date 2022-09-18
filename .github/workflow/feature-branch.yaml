@@ -2,7 +2,7 @@ name: Feature
 on:
   push:
     branches:
-      - feature/*
+      - "feature/*"
 
 jobs:
   create-pull-request:
