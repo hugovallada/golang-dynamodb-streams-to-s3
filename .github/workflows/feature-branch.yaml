@@ -10,3 +10,5 @@ jobs:
     steps:
       - name: Create Pull Request
         run: gh pr create -H main --title "Merge with main" --body "Created by Github Action"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
