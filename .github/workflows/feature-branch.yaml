@@ -5,6 +5,14 @@ on:
       - "feature/*"
 
 jobs:
+  dirs:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
   terraform:
     runs-on: ubuntu-latest
     defaults:
