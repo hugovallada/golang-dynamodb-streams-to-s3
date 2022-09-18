@@ -18,7 +18,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./infra/
+        working-directory: infra
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
